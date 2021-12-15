@@ -1,6 +1,7 @@
 #include <iostream>
 #include<vector>
 #include "Produit.h"
+#include "Client.h"
 
 #ifndef MAGASIN_H
 #define MAGASIN_H
@@ -14,8 +15,8 @@ public:
 
 private:
 	std::vector<Produit> _produits;
-	/*std::vector<Client> _clients;
-	std::vector<Order> _orders;*/
+	std::vector<Client> _clients;
+	//std::vector<Order> _orders;
 
 
 };

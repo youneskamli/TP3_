@@ -8,12 +8,14 @@ public:
 	Produit();
 	Produit(std::string titre, std::string description,int quantite, double prix);
 	std::string getTitre();
+	int getId();
 	std::string getDesc();
 	int getQuantite();
 	double getPrix();
 	void setQuantite(int quantite);
 private:
 	std::string _titre;
+	int _id;
 	std::string _description;
 	int _quantite;
 	double _prix;

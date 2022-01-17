@@ -11,7 +11,7 @@ public:
 	void addProduit(Produit produit);
 	void afficheProduits();
 	void ChercheProduit(std::string produit_cherche);
-	void updateQuantity(std::string nom ,int quantite);
+	void updateQuant(std::string nom ,int quantite);
 
 private:
 	std::vector<Produit> _produits;

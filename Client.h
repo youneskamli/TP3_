@@ -13,7 +13,9 @@ public:
     std::vector<Produit> getPanier();
     void addToPanier(Produit produit);
     void DeletePanier();
-    void updateCart(Produit produit,int quantite);
+    void updateInCart(std::string nom,int quantite);
+    void DeleteFromPanier(std::string nom);
+    std::string AfficherPanier();
 
 private:
     std::string _prenom;
@@ -21,6 +23,9 @@ private:
     int _id;
     std::vector<Produit> _panier;
     bool _validation=false;
+    std::vector<int> _nbproduits;
 };
+
+std::ostream& operator<<(std::ostream& flux, Client &client);
 
 #endif

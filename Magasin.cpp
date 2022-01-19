@@ -27,7 +27,7 @@ void Magasin::ChercheProduit(std::string produit_cherche)
 
 }
 
-void Magasin::updateQuantity(std::string nom,int quantite)
+void Magasin::updateQuant(std::string nom,int quantite)
 {
     std::cout<<"Produit : "<<nom<<std::endl;
     for(int i=0;i<_produits.size();i++)
@@ -35,6 +35,13 @@ void Magasin::updateQuantity(std::string nom,int quantite)
         if (_produits[i].getTitre()==nom){
             std::cout<<"Quantite avant modif : "<<_produits[i].getQuantite()<<" ; Quantite apres modif : "<<quantite<<std::endl;
             _produits[i].setQuantite(quantite);
+        
         }
     }  
+}
+
+void Magasin::AddClient(Client client)
+{
+    _clients.push_back(client);
+
 }

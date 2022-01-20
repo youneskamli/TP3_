@@ -38,4 +38,24 @@ void Magasin::updateQuant(std::string nom,int quantite)
         
         }
     }  
+
+}
+
+
+
+void Magasin::AddClient(Client client)
+{
+    _clients.push_back(client);
+
+}
+
+void Magasin::afficheClients()//Fonction non fini
+{
+
+    for(int i=0;i<_clients.size();i++)
+    {
+        std::cout<<"Client numero "<<i+1<<" : "<<_clients[i].getNom()<<" "<<_clients[i].getPrenom()<<" ; ";
+
+    }
+    std::cout<<"\n";
 }

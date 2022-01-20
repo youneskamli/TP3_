@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Magasin.h"
+
 int main() {
 	Magasin EasyStore;
     Produit PS4("PS4", "Console de jeu de marque Sony", 10, 249.99);

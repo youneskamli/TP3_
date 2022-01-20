@@ -93,3 +93,4 @@ std::ostream& operator<<(std::ostream& flux, Client &client)
 {
     flux <<"Id du client: " << client.getId() << " Prenom : " << client.getPrenom() << " Nom : " << client.getNom() << " Panier : "<<client.AfficherPanier()<<std::endl;
 }
+    

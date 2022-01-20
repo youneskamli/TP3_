@@ -13,6 +13,7 @@ public:
 	void ChercheProduit(std::string produit_cherche);
 	void updateQuant(std::string nom ,int quantite);
 	void AddClient(Client client);
+	void afficheClients();
 
 
 private:

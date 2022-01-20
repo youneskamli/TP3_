@@ -1,7 +1,7 @@
 #include "Client.h"
 #include <sstream>
 
-Client::Client(std::string prenom,std::string nom,int id): _prenom(prenom), _nom(nom), _id(id)
+Client::Client(std::string prenom,std::string nom): _prenom(prenom), _nom(nom)
 {
     static int ref=0;//Chaque client aura un id différent
 	_id=ref++;
@@ -54,6 +54,7 @@ void Client::updateInCart(std::string nom,int quantite)
         {
             _nbproduits[i]=quantite;
             find=1;
+            
         }
     if (find==0)
         std::cout<<"Probleme : le produit n'est pas dans le panier. Veuillez l'ajouter ultérieurement."<<std::endl;
@@ -91,5 +92,6 @@ std::string Client::AfficherPanier()
 
 std::ostream& operator<<(std::ostream& flux, Client &client)
 {
-    flux <<"Id du client: " << client.getId() << " Prenom : " << client.getPrenom() << " Nom : " << client.getNom() << " Panier : "<<client.AfficherPanier()<<std::endl;
+    flux <<"Id du client: " << client.getId() << " ; Nom : " << client.getNom() <<" "<< client.getPrenom() << " ; Panier : "<<client.AfficherPanier();
+    return flux;
 }

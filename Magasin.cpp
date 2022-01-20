@@ -12,7 +12,7 @@ void Magasin::afficheProduits()
 {
     for(int i=0;i<_produits.size();i++)
     {
-        std::cout<<"Produit numero "<<i<<" : "<<_produits[i].getTitre()<<"; ";
+        std::cout<<"Produit numero "<<i+1<<" : "<<_produits[i].getTitre()<<"; ";
     }
 }
 
@@ -29,11 +29,11 @@ void Magasin::ChercheProduit(std::string produit_cherche)
 
 void Magasin::updateQuant(std::string nom,int quantite)
 {
-    std::cout<<"Produit : "<<nom<<std::endl;
+    //std::cout<<"Produit : "<<nom<<std::endl;
     for(int i=0;i<_produits.size();i++)
     {
         if (_produits[i].getTitre()==nom){
-            std::cout<<"Quantite avant modif : "<<_produits[i].getQuantite()<<" ; Quantite apres modif : "<<quantite<<std::endl;
+            //std::cout<<"Quantite avant modif : "<<_produits[i].getQuantite()<<" ; Quantite apres modif : "<<quantite<<std::endl;
             _produits[i].setQuantite(quantite);
         
         }
@@ -44,4 +44,15 @@ void Magasin::AddClient(Client client)
 {
     _clients.push_back(client);
 
+}
+
+void Magasin::afficheClients()//Fonction non fini
+{
+
+    for(int i=0;i<_clients.size();i++)
+    {
+        std::cout<<"Client numero "<<i+1<<" : "<<_clients[i].getNom()<<" "<<_clients[i].getPrenom()<<" ; ";
+
+    }
+    std::cout<<"\n";
 }

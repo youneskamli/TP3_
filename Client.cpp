@@ -28,6 +28,11 @@ std::vector<Produit> Client::getPanier()
     
 }
 
+std::vector<int> Client::getNbInPanier()
+{
+    return _nbproduits;
+}
+
 //Ajouter un produit dans le panier 
 void Client::addToPanier(Produit produit)
 {

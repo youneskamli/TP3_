@@ -15,5 +15,9 @@ int main() {
     c2.addToPanier(PS4);
     EasyStore.updateQuant("PS4",7);
     //EasyStore.ChercheProduit("PS4");
-    EasyStore.afficheClients();
+    EasyStore.addToClientCart(c1,PS4);
+    EasyStore.ChercheClient("Amana");
+    EasyStore.updateQuantFromClientCart(c1,PS4,1);
+    EasyStore.ChercheClient("Amana");
+
 }

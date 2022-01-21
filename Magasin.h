@@ -1,6 +1,5 @@
 #include <iostream>
 #include<vector>
-#include "Produit.h"
 #include "Client.h"
 
 #ifndef MAGASIN_H
@@ -12,8 +11,13 @@ public:
 	void afficheProduits();
 	void ChercheProduit(std::string produit_cherche);
 	void updateQuant(std::string nom ,int quantite);
+	std::vector<Client> getClients();
 	void AddClient(Client client);
 	void afficheClients();
+	void ChercheClient(std::string client_cherche);
+	void addToClientCart(Client &client,Produit &produit);
+	void DelFromClientCart(Client &client, Produit &produit);
+	void updateQuantFromClientCart(Client &client, Produit &produit, int quantite);
 
 
 private:

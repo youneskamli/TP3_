@@ -11,6 +11,7 @@ public:
     std::string getNom();
     int getId();
     std::vector<Produit> getPanier();
+    std::vector<int> getNbInPanier();
     void addToPanier(Produit produit);
     void DeletePanier();
     void updateInCart(std::string nom,int quantite);

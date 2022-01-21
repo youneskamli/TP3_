@@ -143,6 +143,7 @@ void Magasin::updateQuantFromClientCart(Client &client, Produit &produit, int qu
                     if (_produits[j].getId()==produit.getId())
                     {
                         existProduit=1;
+                        client.updateInCart(produit.getTitre(),quantite);
                         _clients[i].updateInCart(produit.getTitre(),quantite);
                     }    
                 }

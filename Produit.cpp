@@ -5,7 +5,7 @@ Produit::Produit()
 
 Produit::Produit(std::string titre, std::string description, int quantite, double prix): _titre(titre), _description(description), _quantite(quantite), _prix(prix)
 {
-	static int id=0;//Chaque produit aura un id différent
+	static int id=1;//Chaque produit aura un id différent
 	_id=id++;
 }
 

@@ -3,7 +3,7 @@
 
 Client::Client(std::string prenom,std::string nom): _prenom(prenom), _nom(nom)
 {
-    static int ref=0;//Chaque client aura un id différent
+    static int ref=1;//Chaque client aura un id différent
 	_id=ref++;
 }
 

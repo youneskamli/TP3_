@@ -19,5 +19,7 @@ int main() {
     EasyStore.ChercheClient("Amana");
     EasyStore.updateQuantFromClientCart(c1,PS4,1);
     EasyStore.ChercheClient("Amana");
+    Commande commande1(c1);
+    std::cout<<commande1<<std::endl;
 
 }

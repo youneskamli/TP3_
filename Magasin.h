@@ -10,6 +10,7 @@ public:
 	void addProduit(Produit produit);
 	void afficheProduits();
 	void ChercheProduit(std::string produit_cherche);
+	int getNbInStore(std::string produit_cherche);
 	void updateQuant(std::string nom ,int quantite);
 	std::vector<Client> getClients();
 	void AddClient(Client client);
@@ -18,6 +19,9 @@ public:
 	void addToClientCart(Client &client,Produit &produit);
 	void DelFromClientCart(Client &client, Produit &produit);
 	void updateQuantFromClientCart(Client &client, Produit &produit, int quantite);
+	void AddCommande(Commande commande);
+	void ValiderCommande(Commande commande);
+	void afficheCommandes();
 
 
 private:

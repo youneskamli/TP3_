@@ -53,9 +53,9 @@ void Commande::setQuantite(std::vector<int> quantite)
 
 std::ostream& operator<<(std::ostream& flux, Commande &commande)
 {
-    if(commande.getStatut()==0)
+    if(commande.getStatut()==false)
         flux<<"Commande numero : "<<commande.getId()<<" ; Client :"<<(commande.getClient()).getNom()<<" ; Panier : "<<(commande.getClient()).AfficherPanier() <<"Commande en cours" <<std::endl;
-    if(commande.getStatut()==1)
+    if(commande.getStatut()==true)
         flux<<"Commande numero : "<<commande.getId()<<" ; Client :"<<(commande.getClient()).getNom()<<" ; Panier : "<<(commande.getClient()).AfficherPanier() <<"Commande valide" <<std::endl;
     return flux;
 }

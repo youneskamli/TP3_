@@ -27,6 +27,18 @@ void Magasin::ChercheProduit(std::string produit_cherche)
 
 }
 
+int Magasin::getNbInStore(std::string produit_cherche)
+{
+    for(int i=0;i<_produits.size();i++)
+    {
+        if (_produits[i].getTitre()==produit_cherche ||std::to_string(_produits[i].getId())==produit_cherche)
+            return _produits[i].getQuantite();
+    }   
+    std::cout<<"Erreur, ce produit n'est pas dans le magasin"<<std::endl;
+    return 0;
+}
+
+
 void Magasin::updateQuant(std::string nom,int quantite)
 {
     //std::cout<<"Produit : "<<nom<<std::endl;
@@ -68,8 +80,10 @@ void Magasin::ChercheClient(std::string client_cherche)
     for(int i=0;i<_clients.size();i++)
     {
         if (std::to_string(_clients[i].getId())==client_cherche || _clients[i].getNom()==client_cherche)
+        {  
             std::cout<<_clients[i]<<std::endl;
             exist=1;
+        }
     }
     if (exist==0)
         std::cout<<"Le client cherché n'est pas dans le magasin"<<std::endl;
@@ -153,4 +167,36 @@ void Magasin::updateQuantFromClientCart(Client &client, Produit &produit, int qu
         std::cout<<"Le client n'est pas dans le magasin"<<std::endl;
     if (existProduit==0)
         std::cout<<"Le produit n'est pas dans le magasin"<<std::endl;
+}
+
+void Magasin::AddCommande(Commande commande)
+{
+    _commande.push_back(commande);
+}
+
+
+void Magasin::ValiderCommande(Commande commande)
+{
+    if((commande.getPanier()).size()==0)
+        std::cout<<"Le panier est vide"<<std::endl;
+        return;
+    for(int i=0;i<commande.getPanier().size();i++)
+    {
+        if(commande.getQuantitePanier()[i] > getNbInStore(commande.getPanier()[i].getTitre()))
+            std::cout<<"Quantite voulue indisponible, veuillez baisser le nombre de produits voulus"<<std::endl;
+            return;
+        updateQuant(commande.getPanier()[i].getTitre(), getNbInStore(commande.getPanier()[i].getTitre())-commande.getQuantitePanier()[i]);
+    }
+    commande.getClient().DeletePanier();
+    commande.setStatut(true);//Faire avec la fonction de la question d'après
+}
+
+void Magasin::afficheCommandes()
+{
+    for(int i=0;i<_commande.size();i++)
+    {
+        std::cout<<_commande[i]<<std::endl;
+
+    }
+    std::cout<<"\n";
 }

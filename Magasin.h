@@ -21,7 +21,9 @@ public:
 	void updateQuantFromClientCart(Client &client, Produit &produit, int quantite);
 	void AddCommande(Commande commande);
 	void ValiderCommande(Commande commande);
+	void setStatutCommande(Commande commande,bool statut);
 	void afficheCommandes();
+	void ChercheCommande(Client client);
 
 
 private:

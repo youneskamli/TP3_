@@ -175,20 +175,34 @@ void Magasin::AddCommande(Commande commande)
 }
 
 
+void Magasin::setStatutCommande(Commande commande,bool statut)
+{
+    commande.setStatut(statut);
+    if(statut==true)
+    {
+        AddCommande(commande);
+        std::cout<<"La commande a bien ete valide"<<std::endl;
+    }
+}
+
 void Magasin::ValiderCommande(Commande commande)
 {
     if((commande.getPanier()).size()==0)
+    {
         std::cout<<"Le panier est vide"<<std::endl;
         return;
+    }
     for(int i=0;i<commande.getPanier().size();i++)
     {
         if(commande.getQuantitePanier()[i] > getNbInStore(commande.getPanier()[i].getTitre()))
+        {   
             std::cout<<"Quantite voulue indisponible, veuillez baisser le nombre de produits voulus"<<std::endl;
             return;
+        }
         updateQuant(commande.getPanier()[i].getTitre(), getNbInStore(commande.getPanier()[i].getTitre())-commande.getQuantitePanier()[i]);
     }
     commande.getClient().DeletePanier();
-    commande.setStatut(true);//Faire avec la fonction de la question d'après
+    setStatutCommande(commande,true);
 }
 
 void Magasin::afficheCommandes()
@@ -199,4 +213,19 @@ void Magasin::afficheCommandes()
 
     }
     std::cout<<"\n";
+}
+
+void Magasin::ChercheCommande(Client client)
+{
+    bool findClient=0;
+    for(int i=0;i<_commande.size();i++)
+    {
+        if(_commande[i].getClient().getId()==client.getId())
+        {
+            findClient=1;
+            std::cout<<_commande[i]<<std::endl;
+        } 
+    }
+    if(findClient==0)
+        std::cout<<"Le client n'a pas fait de commandes"<<std::endl;
 }
